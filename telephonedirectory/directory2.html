@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>telephone</title>
+    <script src="angular.min.js"></script>
+    <script src="directory.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="taskstyle-ref.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" class="container">
+    <div>
+    <center>
+        <h3>TELEPHONE DIRECTORY</h3>
+    </center><br><br>
+    <center>
+    <div id="box">
+        <!-- <div id="details">
+            <div id="head">Add Contact</div>
+            <h4 id="name">Name:</h4>
+
+            <input type="text" class="form-control" id="fname" name="fname" ng-model="contact.name">
+
+            <br>
+            <h4 id="number"> Phone Number: </h4>
+
+            <input type="tel" class="form-control" id="fnum" name="phnum" ng-model="contact.number">
+
+            <br>
+            <input type="hidden" ng-model="contact.id" name="id" type="hidden">
+            <input ng-click="saveHandler()" type="button" class="btn btn-primary" value="save">
+        </div> -->
+   <!-- details -->
+          
+   <div id="head">Add Contact</div>
+   <table id="details">
+    <tr>
+      <td id="Name">Name: </td>
+      <td><input type="text" name="myname" class="form-control"  ng-model="contact.name"></td>
+    </tr>
+    <tr>
+      <td id="Number">Phone Number:</td>
+      <td><input type="tel" class="form-control"  name="mynum" ng-model="contact.number"></td>
+    </tr>
+    <div id="gap">
+    <tr colspan="2">
+    
+        <td><input type="hidden" ng-model="contact.id" name="id" type="hidden"></td>
+    
+     <td><button class=" btn btn-primary" ng-click="saveHandler()">save</button> <button class="btn btn-info"ng-click="cancelHandler()">cancel</button>
+      <div style="color: red;"><b>{{error}}</b></div>
+    </td>
+    
+    </tr>
+   
+</div>
+
+     </table>
+     <!-- <div style="color: red;">{{error}}</div> -->
+
+    </div>
+    </center>
+    <!-- </table class="table1"> -->
+
+    <!-- <div class="alert alert-danger" role="alert">{{error}}</div>
+    <span style="color: red;">{{error}}</span> -->
+    <br><br><br>
+    <center>
+    <div class="container" id="container1">
+       
+        <div class="container">
+
+            <table id="table2" class=" table table-bordered">
+                <tr>
+                    <th id="id1">ID</th>
+                    <th id="id2">Name</th>
+                    <th id="id3">Phone number</th>
+                    <th id="id4">Action</th>
+                </tr>
+                <tr ng-repeat="contact in contacts">
+                    <td>{{$index+1}}</td>
+                    <!-- <td id="id1">{{contact.id+1}}</td> -->
+                    <td id="id2">{{contact.name}}</td>
+                    <td id="id3">{{contact.number}}</td>
+                    <td id="id4">
+                        <a href="#">
+                            <span ng-click="edit(contact.id)" class="glyphicon glyphicon-pencil"></span>
+                          </a>
+                        &emsp;
+                        <a href="#">
+                        <span ng-click="delete(contact.id)" style="color: red;" class="glyphicon glyphicon-trash"></span>
+                      </a></td>
+
+                    <!-- <td><button ng-click="delfun($index)">delete</button></td>
+                <td><button ng-click="editfun($index)">edit</button></td> -->
+                </tr>
+
+            </table>
+        </div>
+    </div></center>
+</div>
+</body>
+
+</html>
